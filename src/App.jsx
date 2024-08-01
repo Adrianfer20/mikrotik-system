@@ -17,10 +17,10 @@ function App() {
       <Navbar />
       <main className="max-w-4xl w-full flex flex-col items-center gap-16 p-6">
           <Routes>
-            <Route path="/" element={user?.email ? <Dashboard /> : <Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/dashboard" element={<PrivateRoute component={<Dashboard />} />} />
-            <Route path="/*" element={<ErrorPages />} />
+            <Route path="/mikrotik-system/" element={user?.email ? <Dashboard /> : <Home />} />
+            <Route path="/mikrotik-system/about" element={<About />} />
+            <Route path="/mikrotik-system/dashboard" element={<PrivateRoute component={<Dashboard />} />} />
+            <Route path="/mikrotik-system/*" element={<ErrorPages />} />
           </Routes>
       </main>
       <Footer />

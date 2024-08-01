@@ -18,9 +18,9 @@ function Navbar() {
     <nav className='w-full flex items-center justify-between bg-blue-950 text-white p-4 shadow-lg'>
       <span className='text-yellow-300 font-bold uppercase'>A|R System</span>
       <ul className='flex gap-4'>
-        <MenuButton to="/" label="Inicio" />
-        <MenuButton to="/about" label="Nosotros" />
-        <MenuButton to="/dashboard" label="Administración" />
+        <MenuButton to="/mikrotik-system/" label="Inicio" />
+        <MenuButton to="/mikrotik-system/about" label="Nosotros" />
+        <MenuButton to="/mikrotik-system/dashboard" label="Administración" />
       </ul>
     </nav>
   );

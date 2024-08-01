@@ -4,7 +4,7 @@ import useUser from '../hooks/useUser';
 
 function PrivateRoute({ component }) {
   const {user} = useUser()
-  return user?.email ? component : <Navigate to="/" />;
+  return user?.email ? component : <Navigate to="/mikrotik-system/" />;
 }
 
 export default PrivateRoute;
