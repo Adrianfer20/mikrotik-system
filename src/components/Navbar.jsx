@@ -1,11 +1,13 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { authStateFirebase } from '../firebase/auth.firebase';
-import MenuButton from './ButtonMenu';
 
-import ROUTES from '../const/routes';
+import NavbarBrand from './navbar/NavbarBrand';
+import NavbarMenu from './navbar/NavbarMenu';
+import NavbarToggle from './navbar/NavbarToggle';
 
 function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -16,17 +18,19 @@ function Navbar() {
     return () => unsubscribe();
   }, [dispatch]);
 
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
-    <nav className='w-full flex items-center justify-between bg-blue-950 text-white p-4 shadow-lg'>
-      <span className='text-yellow-300 font-bold uppercase'>A|R System</span>
-      <ul className='flex gap-4'>
-        <MenuButton to={ROUTES.HOME} label="Inicio" />
-        <MenuButton to={ROUTES.ABOUT} label="Nosotros" />
-        <MenuButton to={ROUTES.DASHBOARD} label="Administración" />
-      </ul>
+    <nav className='w-full bg-blue-950 text-white p-4 shadow-lg'>
+      <div className='flex justify-between items-center'>
+        <NavbarBrand />
+        <NavbarToggle isOpen={isOpen} toggleMenu={toggleMenu} />
+      </div>
+      <NavbarMenu isOpen={isOpen} />
     </nav>
   );
 }
 
 export default Navbar;
-
