@@ -36,20 +36,29 @@ const createNewUserFirebase = async (email, password) => {
 }
 
 const loginFirebase = async (email, password) => {
-    const response = await signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            // Signed in 
-            const user = userCredential.user;
-            const {email, displayName , photoURL } = user;
-            return {email, displayName, photoURL}
-        })
-        .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            return {errorCode, errorMessage}
-        });
-    return response;
-}
+  try {
+    const userCredential = await signInWithEmailAndPassword(auth, email, password);
+    const user = userCredential.user;
+    const { email: userEmail, displayName, photoURL } = user;
+    return { email: userEmail, displayName, photoURL };
+  } 
+  catch (error) {
+    // Define un objeto con mensajes de error amigables
+    const errorMessages = {
+      'auth/invalid-email': 'La dirección de correo electrónico no es válida.',
+      'auth/user-disabled': 'La cuenta de usuario ha sido deshabilitada.',
+      'auth/user-not-found': 'No se encontró una cuenta con este correo electrónico.',
+      'auth/wrong-password': 'La contraseña es incorrecta.',
+      // Agrega otros errores específicos según sea necesario
+    };
+
+    // Obtén el mensaje de error específico o usa uno genérico
+    const friendlyErrorMessage = errorMessages[error.code] || 'Se produjo un error inesperado. Por favor, inténtelo de nuevo más tarde.';
+    
+    // Devuelve un objeto con el error manejado
+    return { error: true, message: friendlyErrorMessage };
+  }
+};
 
 const logoutFirebase = async () => {
   const response = await signOut(auth).then(() => {
