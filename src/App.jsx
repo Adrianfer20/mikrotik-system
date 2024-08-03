@@ -15,9 +15,9 @@ function App() {
   const { user } = useUser();
 
   return (
-    <div className='min-h-screen w-full flex flex-col items-center justify-between'>
+    <div className='min-h-screen w-full flex flex-col items-center justify-between bg-blue-100'>
       <Navbar />
-      <main className="max-w-4xl w-full flex flex-col items-center gap-16 p-6">
+      <main className="max-w-6xl w-full flex flex-col flex-1 items-center gap-16 pt-20 pb-12">
           <Routes>
             <Route path={ROUTES.HOME} element={user?.email ? <Dashboard /> : <Home />} />
             <Route path={ROUTES.ABOUT} element={<About />} />

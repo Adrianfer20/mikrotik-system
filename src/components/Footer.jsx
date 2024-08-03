@@ -9,7 +9,7 @@ const Footer = () => {
           {/* Sección de Enlaces */}
           <div className="flex flex-col items-center lg:items-start">
             <h2 className="text-lg font-semibold mb-2">Enlaces</h2>
-            <ul className="space-y-2">
+            <ul className="flex flex-row gap-3 lg:flex-col lg:space-y-2 transition duration-150 ease-in-out">
               <li><Link to="/" className="hover:underline">Inicio</Link></li>
               <li><Link to="/about" className="hover:underline">Acerca de</Link></li>
               <li><Link to="/dashboard" className="hover:underline">Panel de Administración</Link></li>

@@ -1,9 +1,10 @@
 import React from 'react';
 
-const NavbarToggle = ({ isOpen, toggleMenu }) => (
+const NavbarToggle = ({ isOpen, toggleMenu, toggleRef }) => (
   <button
     className='text-white focus:outline-none md:hidden'
     onClick={toggleMenu}
+    ref={toggleRef}
   >
     <svg
       className='w-6 h-6'
