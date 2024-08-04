@@ -1,14 +1,26 @@
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/mikrotik-system/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mikrotik System</title>
-    <script type="module" crossorigin src="/mikrotik-system/assets/index-DVTamJlW.js"></script>
-    <link rel="stylesheet" crossorigin href="/mikrotik-system/assets/index-CWlxKQRV.css">
-  </head>
-  <body>
-    <div id="root"></div>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/mikrotik-system/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mikrotik System</title>
+  <script>
+    const URL_BASE = "/mikrotik-system/";
+
+    // Redirige a la raíz de la aplicación para que React maneje la ruta
+    if (window.location.href != window.location.origin + URL_BASE) {
+      window.location.replace(window.location.origin + URL_BASE);
+    }
+
+  </script>
+  <script type="module" crossorigin src="/mikrotik-system/assets/index-DVTamJlW.js"></script>
+  <link rel="stylesheet" crossorigin href="/mikrotik-system/assets/index-CWlxKQRV.css">
+</head>
+
+<body>
+  <div id="root"></div>
+</body>
+
 </html>
